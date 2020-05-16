@@ -1,5 +1,6 @@
 package com.castle.creature;
 
+import com.castle.set.WeaponSet;
 import com.castle.weapon.Weapon;
 
 /**
@@ -16,6 +17,12 @@ public abstract class Creature {
     private String description;
     private int hpValue;
     private Weapon currentWeapon;
+
+    //定义武器集合
+    private WeaponSet weaponSet;
+
+    //抽象类构造抽象方法
+    public abstract void useArticle(Weapon weapon, Creature targetCreature);
 
     //构造函数及get，set方法
     public String getId() {
@@ -70,8 +77,5 @@ public abstract class Creature {
         this.hpValue = hpValue;
         this.currentWeapon = currentWeapon;
     }
-
-    //抽象类构造抽象方法
-    public abstract void useArticle(Weapon weapon, Creature targetCreature);
 
 }

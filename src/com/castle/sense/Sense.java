@@ -1,8 +1,8 @@
 package com.castle.sense;
 
 import com.castle.creature.MonsterWolf;
-import com.castle.creature.MonsterWolfSet;
 import com.castle.creature.Person;
+import com.castle.set.MonsterWolfSet;
 import com.castle.ui.Ui;
 import com.castle.utils.Utils;
 import com.castle.weapon.WeaponKnife;
@@ -23,18 +23,18 @@ public class Sense {
     private Person person = new Person("201902202", "小丁", 300,
             new WeaponSword("pw1", "倚天剑", -50));
 
-    private MonsterWolf wolf1 = new MonsterWolf("wolf1", "狼1", 80,
+    private final MonsterWolf wolf1 = new MonsterWolf("wolf1", "狼1", 80,
             new WeaponKnife("mw1", "大刀1", -30));
-    private MonsterWolf wolf2 = new MonsterWolf("wolf2", "狼2", 120,
+    private final MonsterWolf wolf2 = new MonsterWolf("wolf2", "狼2", 120,
             new WeaponKnife("mw2", "大刀2", -20));
-    private MonsterWolf wolf3 = new MonsterWolf("wolf3", "狼3", 100,
+    private final MonsterWolf wolf3 = new MonsterWolf("wolf3", "狼3", 100,
             new WeaponKnife("mw3", "大刀3", -25));
 
     private MonsterWolfSet monsterWolfSet = new MonsterWolfSet();
-    private Scanner in = new Scanner(System.in);
-    private Utils utils = new Utils();
+    private final Scanner in = new Scanner(System.in);
+    private final Utils utils = new Utils();
 
-    private Ui ui = new Ui();
+    private final Ui ui = new Ui();
 
     //初始化
     public void initSense() {
@@ -96,7 +96,7 @@ public class Sense {
             //妖怪进行随机判断攻击
             for (MonsterWolf item:this.monsterWolfSet.getMonsterWolves()
                  ) {
-                if (1 == this.utils.randomMonsterChop(0, 2)) {
+                if (1 == Utils.randomMonsterChop(0, 2)) {
                     //怪物对人造成伤害
                     item.useArticle(item.getCurrentWeapon(), this.getPerson());
                     //提示造成伤害信息

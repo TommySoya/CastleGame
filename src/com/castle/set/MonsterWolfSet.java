@@ -1,4 +1,6 @@
-package com.castle.creature;
+package com.castle.set;
+
+import com.castle.creature.MonsterWolf;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,7 @@ public class MonsterWolfSet {
     public MonsterWolfSet() {
     }
 
-    //增删改查
+    //CURD
     //根据id（String）查找对应的MonsterWolf对象
     public MonsterWolf get(String id) {
         MonsterWolf monsterWolf = null;
