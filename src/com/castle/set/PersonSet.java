@@ -8,4 +8,5 @@ package com.castle.set;
  * @modified By:
  */
 public class PersonSet {
+    // Only one person valid
 }

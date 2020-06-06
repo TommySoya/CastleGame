@@ -46,4 +46,17 @@ public class MonsterWolfSet {
         return monsterWolf;
     }
 
+    public boolean delete(String id) {
+        boolean flag = false;
+        for (MonsterWolf item:monsterWolves
+        ) {
+            if (id.equals(item.getId())) {
+                monsterWolves.remove(item);
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
 }

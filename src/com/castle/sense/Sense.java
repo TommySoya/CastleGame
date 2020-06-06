@@ -8,6 +8,7 @@ import com.castle.utils.Utils;
 import com.castle.weapon.WeaponKnife;
 import com.castle.weapon.WeaponSword;
 
+import java.awt.print.Printable;
 import java.util.Scanner;
 
 /**
@@ -53,14 +54,14 @@ public class Sense {
         monsterWolfSet.getMonsterWolves().add(wolf3);
     }
 
-    //胜利判断
-//    public boolean judgeSuccess() {
-//        boolean flagPersonSuccess = false;
-//        if (this.getPerson().getHpValue() <= 0) {
-//            flagPersonSuccess = false;
-//        } else
-//        return true;
-//    }
+    // 胜利判断
+    public boolean judgeSuccess(MonsterWolfSet monsterWolfSet) {
+        boolean flagPersonSuccess = false;
+        if (monsterWolfSet.getMonsterWolves().size() == 0) {
+            flagPersonSuccess = true;
+        }
+        return flagPersonSuccess;
+    }
 
     //游戏玩法
     public void play() {
@@ -89,6 +90,20 @@ public class Sense {
                 //提示伤害信息
                 ui.displayDamageMsg(this.getPerson(),
                         this.monsterWolfSet.get(cmdLineItems[1]));
+                //判断攻击目标是否死亡
+                if (this.getMonsterWolfSet().get(cmdLineItems[1]).getHpValue() <= 0) {
+                    boolean flag = false;
+                    String enemyName = this.getMonsterWolfSet().get(cmdLineItems[1]).getDescription();
+                    flag = this.getMonsterWolfSet().delete(this.getMonsterWolfSet().get(cmdLineItems[1]).getId());
+                    if (flag) {
+                        ui.displayRemoveCreature(enemyName);
+                        flag = false;
+                        if (judgeSuccess(this.getMonsterWolfSet())) {
+                            ui.displayVictory();
+                            break;
+                        }
+                    }
+                }
             } else {
                 ui.displayErrorCmdMsg();
                 continue;
@@ -101,6 +116,11 @@ public class Sense {
                     item.useArticle(item.getCurrentWeapon(), this.getPerson());
                     //提示造成伤害信息
                     ui.displayDamageMsg(item, this.getPerson());
+                    if (getPerson().getHpValue() <= 0) {
+                        ui.displayRemoveCreature(getPerson().getDescription());
+                        ui.displayDefeat();
+                        break;
+                    }
                 }
             }
             //显示当前状态

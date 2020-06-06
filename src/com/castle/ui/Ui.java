@@ -51,9 +51,24 @@ public class Ui {
                 + "伤害");
     }
 
+    //生物死亡提示界面
+    public void displayRemoveCreature(String description) {
+        System.out.println(description + "is dead");
+    }
+
+    //结束界面(胜利)
+    public void displayVictory() {
+        System.out.println("Victory!!");
+    }
+
+    //结束界面(失败)
+    public void displayDefeat() {
+        System.out.println("Defeat!!");
+    }
+
     //结束界面
     public void displayBye() {
-        System.out.println("bye!");
+        System.out.println("Bye!");
     }
 
 }
