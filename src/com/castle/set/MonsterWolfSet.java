@@ -1,8 +1,10 @@
 package com.castle.set;
 
+import com.castle.creature.Creature;
 import com.castle.creature.MonsterWolf;
 
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 
 /**
  * @description:
@@ -11,52 +13,28 @@ import java.util.ArrayList;
  * @version: 1.0
  * @modified By:
  */
-public class MonsterWolfSet {
+public class MonsterWolfSet extends CreatureSet {
 
     //狼集合
-    private ArrayList<MonsterWolf> monsterWolves = new ArrayList<>();
+    private ArrayList<Creature> monsterWolves = new ArrayList<>();
 
     //构造函数及get、set方法
-    public MonsterWolfSet(ArrayList<MonsterWolf> monsterWolves) {
+    public MonsterWolfSet(ArrayList<Creature> monsterWolves) {
+        super();
         this.monsterWolves = monsterWolves;
     }
 
-    public ArrayList<MonsterWolf> getMonsterWolves() {
+    @Override
+    public ArrayList<Creature> getMonsters() {
         return monsterWolves;
     }
 
-    public void setMonsterWolves(ArrayList<MonsterWolf> monsterWolves) {
+    public void setMonsterWolves(ArrayList<Creature> monsterWolves) {
         this.monsterWolves = monsterWolves;
     }
 
     public MonsterWolfSet() {
-    }
-
-    //CURD
-    //根据id（String）查找对应的MonsterWolf对象
-    public MonsterWolf get(String id) {
-        MonsterWolf monsterWolf = null;
-        for (MonsterWolf item:monsterWolves
-             ) {
-            if (id.equals(item.getId())) {
-                monsterWolf = item;
-                break;
-            }
-        }
-        return monsterWolf;
-    }
-
-    public boolean delete(String id) {
-        boolean flag = false;
-        for (MonsterWolf item:monsterWolves
-        ) {
-            if (id.equals(item.getId())) {
-                monsterWolves.remove(item);
-                flag = true;
-                break;
-            }
-        }
-        return flag;
+        super();
     }
 
 }

@@ -3,14 +3,12 @@ package com.castle.sense;
 import com.castle.creature.Creature;
 import com.castle.creature.MonsterWolf;
 import com.castle.creature.Person;
-import com.castle.set.CreatureSet;
 import com.castle.set.MonsterWolfSet;
 import com.castle.ui.Ui;
 import com.castle.utils.Utils;
 import com.castle.weapon.WeaponKnife;
 import com.castle.weapon.WeaponSword;
 
-import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,18 +19,18 @@ import java.util.Scanner;
  * @version: 1.0
  * @modified By:
  */
-public class Sense {
+public class SenseWolfForest extends Sense {
 
     //设置场景、生物等
-    protected Person person = new Person("201902202", "小丁", 300,
-            new WeaponSword("pw1", "倚天剑", -50));
+    private final MonsterWolf wolf1 = new MonsterWolf("wolf1", "狼1", 80,
+            new WeaponKnife("mw1", "大刀1", -30));
+    private final MonsterWolf wolf2 = new MonsterWolf("wolf2", "狼2", 120,
+            new WeaponKnife("mw2", "大刀2", -20));
+    private final MonsterWolf wolf3 = new MonsterWolf("wolf3", "狼3", 100,
+            new WeaponKnife("mw3", "大刀3", -25));
 
-    private CreatureSet monsterSet;
-    protected final Scanner in = new Scanner(System.in);
-    protected final Utils utils = Utils.getUtils();
-    protected final Ui ui = Ui.getUi();
-    private ArrayList<Creature> theArray;
-
+    private MonsterWolfSet monsterWolfSet = new MonsterWolfSet();
+    private ArrayList<Creature> theArray = this.getMonsterSet().getMonsters();
 
     //初始化
     public void initSense() {
@@ -46,8 +44,10 @@ public class Sense {
 
     public void initMonser() {
         //该生物在创建时已传参,只将其放入集合
+        monsterWolfSet.getMonsters().add(wolf1);
+        monsterWolfSet.getMonsters().add(wolf2);
+        monsterWolfSet.getMonsters().add(wolf3);
     }
-
 
     // 人的回合--攻击
     public void attackMonster(String target) {
@@ -56,7 +56,7 @@ public class Sense {
                 this.getMonsterSet().get(theArray, target));
         //提示伤害信息
         ui.displayDamageMsg(this.getPerson(),
-                this.monsterSet.get(theArray, target));
+                this.monsterWolfSet.get(theArray, target));
     }
 
     // 妖怪的回合--攻击
@@ -85,9 +85,9 @@ public class Sense {
     }
 
     // 胜利判断
-    public boolean judgeSuccess(CreatureSet monsterSet) {
+    public boolean judgeSuccess(MonsterWolfSet monsterWolfSet) {
         boolean flagPersonSuccess = false;
-        if (monsterSet.getMonsters().size() == 0) {
+        if (monsterWolfSet.getMonsters().size() == 0) {
             flagPersonSuccess = true;
         }
         return flagPersonSuccess;
@@ -154,12 +154,13 @@ public class Sense {
         this.person = person;
     }
 
-    public CreatureSet getMonsterSet() {
-        return monsterSet;
+    @Override
+    public MonsterWolfSet getMonsterSet() {
+        return monsterWolfSet;
     }
 
     public void setMonsterWolfSet(MonsterWolfSet monsterWolfSet) {
-        this.monsterSet = monsterWolfSet;
+        this.monsterWolfSet = monsterWolfSet;
     }
 
 }
