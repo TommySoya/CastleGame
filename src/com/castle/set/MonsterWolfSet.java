@@ -2,6 +2,7 @@ package com.castle.set;
 
 import com.castle.creature.Creature;
 import com.castle.creature.MonsterWolf;
+import com.castle.ui.Ui;
 
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
@@ -19,22 +20,29 @@ public class MonsterWolfSet extends CreatureSet {
     private ArrayList<Creature> monsterWolves = new ArrayList<>();
 
     //构造函数及get、set方法
-    public MonsterWolfSet(ArrayList<Creature> monsterWolves) {
+    private MonsterWolfSet(ArrayList<Creature> monsterWolves) {
         super();
         this.monsterWolves = monsterWolves;
     }
 
-    @Override
-    public ArrayList<Creature> getMonsters() {
-        return monsterWolves;
+    private MonsterWolfSet() {
+        super();
+    }
+
+    // 静态内部类
+    private static class MonsterWolfSetHolder {
+        private static MonsterWolfSet monsterWolfSet = new MonsterWolfSet();
+    }
+
+    public static MonsterWolfSet getMonsters() {
+        return MonsterWolfSetHolder.monsterWolfSet;
     }
 
     public void setMonsterWolves(ArrayList<Creature> monsterWolves) {
         this.monsterWolves = monsterWolves;
     }
 
-    public MonsterWolfSet() {
-        super();
+    public ArrayList<Creature> getMonsterWolves() {
+        return monsterWolves;
     }
-
 }

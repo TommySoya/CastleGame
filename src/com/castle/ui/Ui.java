@@ -32,7 +32,7 @@ public class Ui {
         System.out.println("---------------------------------------------");
         System.out.println(sense.getPerson().getDescription() +
                 ":" + sense.getPerson().getHpValue());
-        for (Creature item:sense.getMonsterSet().getMonsters()
+        for (Creature item:sense.getTheArray()
              ) {
             System.out.print(item.getId() + "(" + item.getDescription()
             + "):" + item.getHpValue() + "; ");
@@ -90,7 +90,7 @@ public class Ui {
     public void intro() {
         System.out.println("独白：\n…………这是哪儿…………\n" +
         "…………我是谁…………\n");
-        System.out.println("神秘的声音：\n勇敢的骑…士啊，神指…引你来(小声地，选t……)到这里。开始…你的冒险吧……\n");
+        System.out.println("神秘的声音：\n勇敢的骑…士啊，神指…引你来(不知哪里传来孩童的谈论：选t……)到这里。开始…你的冒险吧……\n");
         System.out.println("(周围一片黑漆漆，你更加困惑了)那儿好像有道光……");
         System.out.println("------------------------------------------------------------------------------\n" +
                 "是时候做出选择了：你要过去看一下吗？（y/n)");
@@ -105,6 +105,11 @@ public class Ui {
                 "你突然发现在你的的身旁有一把生锈的铁剑，不知道还能不能用\n逃跑……我该去哪里呢？\n" +
                 "骑士……难道这就是我的宿命？我到底是谁？\n" +
                 "（迟疑间，狼群已经迫近）来不及了，必须做出决定了！是前进还是退却？（y/n)");
+    }
+
+    public void exitWolfForest() {
+        System.out.println("------------------------------------------------------------------------------");
+        System.out.println("（奋力奔跑）不知过了多久，不知去向何方，亦不知我是谁。生于无知，亦在迷惑中离去……");
     }
 
 }

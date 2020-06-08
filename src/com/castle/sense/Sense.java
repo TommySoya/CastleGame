@@ -27,11 +27,11 @@ public class Sense {
     protected Person person = new Person("201902202", "小丁", 300,
             new WeaponSword("pw1", "倚天剑", -50));
 
-    private CreatureSet monsterSet;
+    protected CreatureSet monsterSet;
     protected final Scanner in = new Scanner(System.in);
     protected final Utils utils = Utils.getUtils();
     protected final Ui ui = Ui.getUi();
-    private ArrayList<Creature> theArray;
+    protected ArrayList<Creature> theArray;
 
 
     //初始化
@@ -87,7 +87,7 @@ public class Sense {
     // 胜利判断
     public boolean judgeSuccess(CreatureSet monsterSet) {
         boolean flagPersonSuccess = false;
-        if (monsterSet.getMonsters().size() == 0) {
+        if (theArray.size() == 0) {
             flagPersonSuccess = true;
         }
         return flagPersonSuccess;
@@ -162,4 +162,11 @@ public class Sense {
         this.monsterSet = monsterWolfSet;
     }
 
+    public ArrayList<Creature> getTheArray() {
+        return theArray;
+    }
+
+    public void setTheArray(ArrayList<Creature> theArray) {
+        this.theArray = theArray;
+    }
 }

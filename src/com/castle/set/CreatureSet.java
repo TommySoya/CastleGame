@@ -17,9 +17,6 @@ public class CreatureSet {
     public CreatureSet() {}
 
     private ArrayList<Creature> monsters;
-    public ArrayList<Creature> getMonsters() {
-        return monsters;
-    }
 
     //CURD
     // 添加生物

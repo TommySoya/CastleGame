@@ -1,5 +1,6 @@
 package com.castle;
 
+import com.castle.creature.Person;
 import com.castle.sense.Sense;
 import com.castle.sense.SenseWolfForest;
 import com.castle.ui.Ui;
@@ -29,12 +30,23 @@ public class Main {
                 // 战斗场景开关
                 do {
                     choice = in.nextLine();
-                    SenseWolfForest senseWolfForest = new SenseWolfForest();
-                    senseWolfForest.initSense();
-                    senseWolfForest.play();
+                    if (choice.equals("y") || choice.equals("Y")) {
+                        SenseWolfForest senseWolfForest = new SenseWolfForest();
+                        senseWolfForest.initSense();
+                        senseWolfForest.play();
+
+                        // 判断胜利者
+
+                    } else if (choice.equals("n") || choice.equals("N")) {
+                        ui.exitWolfForest();
+                        System.exit(0);
+                    } else {
+                        System.out.println("请输入正确的指令！");
+                    }
                 } while (passKey);
 
             } else if (choice.equals("n") || choice.equals("N")) {
+                ui.exitWolfForest();
                 System.exit(0);
             } else {
                 System.out.println("请输入正确的指令！");
