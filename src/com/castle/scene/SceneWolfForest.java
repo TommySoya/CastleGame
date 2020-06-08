@@ -1,17 +1,8 @@
-package com.castle.sense;
+package com.castle.scene;
 
-import com.castle.creature.Creature;
 import com.castle.creature.MonsterWolf;
-import com.castle.creature.Person;
-import com.castle.set.CreatureSet;
 import com.castle.set.MonsterWolfSet;
-import com.castle.ui.Ui;
-import com.castle.utils.Utils;
 import com.castle.weapon.WeaponKnife;
-import com.castle.weapon.WeaponSword;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * @description:
@@ -20,9 +11,9 @@ import java.util.Scanner;
  * @version: 1.0
  * @modified By:
  */
-public class SenseWolfForest extends Sense {
+public class SceneWolfForest extends Scene {
 
-    public SenseWolfForest() {
+    public SceneWolfForest() {
         super.monsterSet = MonsterWolfSet.getMonsters();
         super.theArray = MonsterWolfSet.getMonsters().getMonsterWolves();
     }

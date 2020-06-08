@@ -1,8 +1,6 @@
 package com.castle;
 
-import com.castle.creature.Person;
-import com.castle.sense.Sense;
-import com.castle.sense.SenseWolfForest;
+import com.castle.scene.SceneWolfForest;
 import com.castle.ui.Ui;
 
 import java.util.Scanner;
@@ -31,7 +29,7 @@ public class Main {
                 do {
                     choice = in.nextLine();
                     if (choice.equals("y") || choice.equals("Y")) {
-                        SenseWolfForest senseWolfForest = new SenseWolfForest();
+                        SceneWolfForest senseWolfForest = new SceneWolfForest();
                         senseWolfForest.initSense();
                         senseWolfForest.play();
 

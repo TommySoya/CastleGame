@@ -1,16 +1,13 @@
-package com.castle.sense;
+package com.castle.scene;
 
 import com.castle.creature.Creature;
-import com.castle.creature.MonsterWolf;
 import com.castle.creature.Person;
 import com.castle.set.CreatureSet;
 import com.castle.set.MonsterWolfSet;
 import com.castle.ui.Ui;
 import com.castle.utils.Utils;
-import com.castle.weapon.WeaponKnife;
 import com.castle.weapon.WeaponSword;
 
-import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,7 +18,7 @@ import java.util.Scanner;
  * @version: 1.0
  * @modified By:
  */
-public class Sense {
+public class Scene {
 
     //设置场景、生物等
     protected Person person = new Person("201902202", "小丁", 300,

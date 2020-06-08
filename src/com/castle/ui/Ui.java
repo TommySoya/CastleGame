@@ -1,8 +1,7 @@
 package com.castle.ui;
 
 import com.castle.creature.Creature;
-import com.castle.creature.MonsterWolf;
-import com.castle.sense.Sense;
+import com.castle.scene.Scene;
 
 /**
  * @description:
@@ -28,11 +27,11 @@ public class Ui {
     }
 
     // 生物状态信息
-    public void displayStatus(Sense sense) {
+    public void displayStatus(Scene scene) {
         System.out.println("---------------------------------------------");
-        System.out.println(sense.getPerson().getDescription() +
-                ":" + sense.getPerson().getHpValue());
-        for (Creature item:sense.getTheArray()
+        System.out.println(scene.getPerson().getDescription() +
+                ":" + scene.getPerson().getHpValue());
+        for (Creature item: scene.getTheArray()
              ) {
             System.out.print(item.getId() + "(" + item.getDescription()
             + "):" + item.getHpValue() + "; ");
