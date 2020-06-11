@@ -1,6 +1,7 @@
 package com.castle.creature;
 
 import com.castle.weapon.Weapon;
+import com.castle.weapon.WeaponSword;
 
 /**
  * @description:
@@ -12,8 +13,17 @@ import com.castle.weapon.Weapon;
 public class Person extends Creature {
 
     //构造函数
-    public Person(String id, String description, int hpValue, Weapon currentWeapon) {
+    private Person(String id, String description, int hpValue, Weapon currentWeapon) {
         super(id, description, hpValue, currentWeapon);
+    }
+
+    private static class PersonHolder {
+        private static Person person = new Person("201902202", "未知", 300,
+                new WeaponSword("pw1", "破旧的铁剑", -50));
+    }
+
+    public static Person getPerson() {
+        return PersonHolder.person;
     }
 
     @Override

@@ -6,7 +6,6 @@ import com.castle.set.CreatureSet;
 import com.castle.set.MonsterWolfSet;
 import com.castle.ui.Ui;
 import com.castle.utils.Utils;
-import com.castle.weapon.WeaponSword;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -21,9 +20,7 @@ import java.util.Scanner;
 public class Scene {
 
     //设置场景、生物等
-    protected Person person = new Person("201902202", "小丁", 300,
-            new WeaponSword("pw1", "倚天剑", -50));
-
+    protected Person person = Person.getPerson();
     protected CreatureSet monsterSet;
     protected final Scanner in = new Scanner(System.in);
     protected final Utils utils = Utils.getUtils();
@@ -45,6 +42,22 @@ public class Scene {
         //该生物在创建时已传参,只将其放入集合
     }
 
+
+    // 命令判断
+    public String choice() {
+        String choice;
+        do {
+            choice = in.nextLine();
+            if (choice.equals("y") || choice.equals("Y")) {
+                break;
+            } else if (choice.equals("n") || choice.equals("N")) {
+                break;
+            } else {
+                System.out.println("请输入正确的指令！");
+            }
+        } while (true);
+        return choice.toLowerCase();
+    }
 
     // 人的回合--攻击
     public void attackMonster(String target) {
