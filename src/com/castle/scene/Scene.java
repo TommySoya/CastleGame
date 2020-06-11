@@ -107,6 +107,7 @@ public class Scene {
     public void play() {
 
         //显示当前状态
+        ui.displayBegin();
         ui.displayStatus(this);
         //进入循环
         while (true) {
