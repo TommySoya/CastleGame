@@ -169,7 +169,7 @@ public class Scene {
         return monsterSet;
     }
 
-    public void setMonsterWolfSet(MonsterWolfSet monsterWolfSet) {
+    public void setMonsterSet(MonsterWolfSet monsterWolfSet) {
         this.monsterSet = monsterWolfSet;
     }
 

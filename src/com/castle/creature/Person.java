@@ -32,6 +32,10 @@ public class Person extends Creature {
         return maxHp;
     }
 
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+
     @Override
     public void useArticle(Weapon weapon, Creature targetCreature) {
         weapon.useArticle(targetCreature);

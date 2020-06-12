@@ -158,6 +158,12 @@ public class Ui {
         System.out.println("只能拼死一搏了！");
     }
 
+    public void exitCrocodileSwamp() {
+        System.out.println("---------------------------------------------");
+        System.out.println("(原本虚弱的身体迅速恢复)奇怪，明明差点死掉，却并没有感到疼痛呢\n" +
+                "难道是回光返照？我还能活下来么？");
+    }
+
     public void exit() {
         System.out.println("---------------------------------------------");
         System.out.println("（倒在血泊中）就这样……结束了么……");

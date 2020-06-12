@@ -24,8 +24,8 @@ public class Main {
         // 正片开始
         boolean passKey = true; // 用于控制当前关卡的结束
         String choice; // 用于记录你的每一步选择
-        ui.intro();
 
+//        ui.intro();
 
 //        // 场景一
 //        // 战斗前夕的介绍--剧情介绍<狼群出现>
@@ -54,7 +54,7 @@ public class Main {
 //                break;
 //        }
 //
-//        // 场景过渡--死亡判断<下一幕剧情的触发及彩蛋
+//        // 场景过渡--死亡判断<下一幕剧情的触发及彩蛋>
 //        if (initScene.getPerson().getHpValue() <= 0) {
 //            ui.exit();
 //            System.exit(0);
@@ -79,6 +79,18 @@ public class Main {
             ui.exitCrocodileSwampToBye();
             System.exit(0);
         }
+
+        // 场景过渡--死亡判断<下一幕剧情的触发及彩蛋>
+        if (initScene.getPerson().getHpValue() <= 0) {
+            ui.exit();
+            System.exit(0);
+        } else {
+            Person.getPerson().setMaxHp(500);
+            Person.getPerson().setHpValue(Person.getPerson().getMaxHp());
+            ui.exitCrocodileSwamp();
+        }
+
+        // 场景三--<歧路>
 
     }
 }
