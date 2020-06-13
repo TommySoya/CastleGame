@@ -1,8 +1,10 @@
 package com.castle.scene;
 
 import com.castle.creature.MonsterWolf;
+import com.castle.creature.Person;
 import com.castle.set.MonsterCrocodileSet;
 import com.castle.set.MonsterWolfSet;
+import com.castle.weapon.WeaponDagger;
 import com.castle.weapon.WeaponFangs;
 import com.castle.weapon.WeaponKnife;
 
@@ -38,6 +40,16 @@ public class SceneCrocodileSwamp extends Scene {
     public void initMonser() {
         //该生物在创建时已传参,只将其放入集合
         theArray.add(wolf1);
+    }
+
+    // 彩蛋
+    public void easterEggs() {
+        System.out.println("是一把武器……（为什么这么熟悉）" +
+                "\n要捡起它吗？（y/n）");
+        if (this.choice().equals("y")) {
+            Person.getPerson().setCurrentWeapon(new WeaponDagger("bs", "静谧之刃", -100));
+            ui.displayPersonStatus();
+        }
     }
 
 }

@@ -4,6 +4,8 @@ import com.castle.creature.Creature;
 import com.castle.creature.Person;
 import com.castle.scene.Scene;
 
+import javax.sound.midi.Soundbank;
+
 /**
  * @description:
  * @author: dell
@@ -162,6 +164,24 @@ public class Ui {
         System.out.println("---------------------------------------------");
         System.out.println("(原本虚弱的身体迅速恢复)奇怪，明明差点死掉，却并没有感到疼痛呢\n" +
                 "难道是回光返照？我还能活下来么？");
+    }
+
+    public void introBranchRoad() {
+        System.out.println("-------------------------------------------------------------------------------------------");
+        System.out.println("眼前恍惚了一下？" +
+                "\n（神秘的声音）嘿嘿，小伙子，我们来玩个游戏吧。这有张写着数字的纸片，" +
+                "\n你要是猜对了，我就送给你一把上好的武器！不过如果猜错了……");
+        System.out.println("有点好奇，赌一把么？（y/n)");
+    }
+
+    public void exitBranchRoad() {
+        System.out.println("（身体越陷越深）不行，要赶快离开这里了！" +
+                "（突然发现）前面似乎有座城堡");
+    }
+
+    public void exitBranchRoadToBye() {
+        System.out.println("---------------------------------------------");
+        System.out.println("（你没有理睬脚下的一切）前进，前进，在沼泽中迷失……");
     }
 
     public void exit() {

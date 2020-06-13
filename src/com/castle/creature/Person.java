@@ -1,5 +1,6 @@
 package com.castle.creature;
 
+import com.castle.set.WeaponSet;
 import com.castle.weapon.Weapon;
 import com.castle.weapon.WeaponSword;
 
@@ -14,7 +15,10 @@ public class Person extends Creature {
 
     private int maxHp = 300; // 血量最大值上限
 
-    //构造函数
+    // 武器集合
+    private WeaponSet weaponSet = new WeaponSet();
+
+    // 构造函数
     private Person(String id, String description, int hpValue, Weapon currentWeapon) {
         super(id, description, hpValue, currentWeapon);
     }
@@ -34,6 +38,14 @@ public class Person extends Creature {
 
     public void setMaxHp(int maxHp) {
         this.maxHp = maxHp;
+    }
+
+    public WeaponSet getWeaponSet() {
+        return weaponSet;
+    }
+
+    public void setWeaponSet(WeaponSet weaponSet) {
+        this.weaponSet = weaponSet;
     }
 
     @Override

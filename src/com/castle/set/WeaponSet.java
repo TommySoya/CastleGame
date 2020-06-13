@@ -56,4 +56,9 @@ public class WeaponSet {
         }
     }
 
+    // get and set
+
+    public ArrayList<Weapon> getWeapons() {
+        return weapons;
+    }
 }

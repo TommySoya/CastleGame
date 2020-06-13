@@ -2,6 +2,7 @@ package com.castle;
 
 import com.castle.creature.Person;
 import com.castle.scene.Scene;
+import com.castle.scene.SceneBranchRoad;
 import com.castle.scene.SceneCrocodileSwamp;
 import com.castle.scene.SceneWolfForest;
 import com.castle.ui.Ui;
@@ -63,34 +64,36 @@ public class Main {
 //        }
 
 
-        // 场景二
-        ui.introCrocodileSwampFir();
-        // 开始前--<彩蛋之捡起武器>
-        if (initScene.choice().equals("y")) {
-            System.out.println("是一把武器……（为什么这么熟悉）");
-            Person.getPerson().setCurrentWeapon(new WeaponDagger("bs", "静谧之刃", -100));
-            ui.displayPersonStatus();
-            // 战斗--<巨鳄突袭>
-            ui.introCrocodileSwampSec();
-            SceneCrocodileSwamp sceneCrocodileSwamp = new SceneCrocodileSwamp();
-            sceneCrocodileSwamp.initSense();
-            sceneCrocodileSwamp.play();
-        } else {
-            ui.exitCrocodileSwampToBye();
-            System.exit(0);
-        }
-
-        // 场景过渡--死亡判断<下一幕剧情的触发及彩蛋>
-        if (initScene.getPerson().getHpValue() <= 0) {
-            ui.exit();
-            System.exit(0);
-        } else {
-            Person.getPerson().setMaxHp(500);
-            Person.getPerson().setHpValue(Person.getPerson().getMaxHp());
-            ui.exitCrocodileSwamp();
-        }
+//        // 场景二
+//        ui.introCrocodileSwampFir();
+//        // 开始前--<彩蛋之捡起武器>
+//        if (initScene.choice().equals("y")) {
+//            System.out.println("是一把武器……（为什么这么熟悉）");
+//            Person.getPerson().setCurrentWeapon(new WeaponDagger("bs", "静谧之刃", -100));
+//            ui.displayPersonStatus();
+//            // 战斗--<巨鳄突袭>
+//            ui.introCrocodileSwampSec();
+//            SceneCrocodileSwamp sceneCrocodileSwamp = new SceneCrocodileSwamp();
+//            sceneCrocodileSwamp.initSense();
+//            sceneCrocodileSwamp.play();
+//        } else {
+//            ui.exitCrocodileSwampToBye();
+//            System.exit(0);
+//        }
+//
+//        // 场景过渡--死亡判断<下一幕剧情的触发及彩蛋>
+//        if (initScene.getPerson().getHpValue() <= 0) {
+//            ui.exit();
+//            System.exit(0);
+//        } else {
+//            Person.getPerson().setMaxHp(500);
+//            Person.getPerson().setHpValue(Person.getPerson().getMaxHp());
+//            ui.exitCrocodileSwamp();
+//        }
 
         // 场景三--<歧路>
+        SceneBranchRoad sceneBranchRoad = new SceneBranchRoad();
+        sceneBranchRoad.plot();
 
     }
 }
