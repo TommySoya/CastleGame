@@ -19,12 +19,12 @@ public class WeaponSet {
     //CURD 记录
 
     //create new weapon
-    private void insert(Weapon weapon) {
+    public void insert(Weapon weapon) {
         weapons.add(weapon);
     }
 
     //search by id
-    private Weapon select(String id) {
+    public Weapon select(String id) {
         Weapon goalWeapon = null;
         for (Weapon item : weapons
         ) {
@@ -36,8 +36,20 @@ public class WeaponSet {
         return goalWeapon;
     }
 
+    public boolean isPresence(String id) {
+        boolean goalWeapon = false;
+        for (Weapon item : weapons
+        ) {
+            if (item.equals(id)) {
+                goalWeapon = true;
+                break;
+            }
+        }
+        return goalWeapon;
+    }
+
     //delete by id
-    private void delete(String id) {
+    public void delete(String id) {
         if (select(id) != null) {
             weapons.remove(select(id));
             System.out.println("Delete successfully");
@@ -47,7 +59,7 @@ public class WeaponSet {
     }
 
     //update damagePoint by id
-    private void update(String id, int damagePoints) {
+    public void update(String id, int damagePoints) {
         if (select(id) != null) {
             select(id).setDamagePoints(damagePoints);
             System.out.println("Update successfully");
@@ -57,7 +69,6 @@ public class WeaponSet {
     }
 
     // get and set
-
     public ArrayList<Weapon> getWeapons() {
         return weapons;
     }

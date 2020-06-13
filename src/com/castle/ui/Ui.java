@@ -52,6 +52,8 @@ public class Ui {
 
     // 提示输入指令
     public void displayCmdMsg() {
+        System.out.println("---------------------------------------------");
+        System.out.println("你可以：[攻击<chop>  切换武器<switch>  结束游戏<bye>  查看帮助信息<help>]");
         System.out.println("请选择你的操作\n(输入\"help\"查看帮助信息):");
     }
 

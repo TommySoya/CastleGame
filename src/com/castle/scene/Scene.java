@@ -6,6 +6,7 @@ import com.castle.set.CreatureSet;
 import com.castle.set.MonsterWolfSet;
 import com.castle.ui.Ui;
 import com.castle.utils.Utils;
+import com.castle.weapon.Weapon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -135,18 +136,41 @@ public class Scene {
             if (cmdLineItems[0].equals("bye")) {
                 ui.displayBye();
                 System.exit(0);
+            } else if (cmdLineItems[0].equals("switch")) {
+                if (cmdLineItems.length == 2) {
+                    // 判断武器是否存在
+                    if (getPerson().getWeaponSet().isPresence(cmdLineItems[1])) {
+                        getPerson().setCurrentWeapon(getPerson().getWeaponSet().select(cmdLineItems[1]));
+                    } else {
+                        System.out.print("该武器不存在，请输入正确的武器id\n" +
+                                "你现在拥有：");
+                        for (Weapon item:getPerson().getWeaponSet().getWeapons()
+                        ) {
+                            System.out.print(item.getDescription() + ":<" + item.getId() + "> ");
+                        }
+                        System.out.println();
+                    }
+                } else {
+                    System.out.println("输入指令错误！请输入要切换的武器（e.g. switch targetWeapon)");
+                }
+                continue;
             } else if (cmdLineItems[0].equals("help")) {
                 ui.displayHelpMsg();
                 continue;
             } else if (cmdLineItems[0].equals("chop")) {
-                // 判断攻击目标是否有效
-                if (isPresence(cmdLineItems[1])) {
-                    // 人攻击
-                    this.attackMonster(cmdLineItems[1]);
-                    // 判断攻击目标是否死亡
-                    this.checkIsDead(cmdLineItems[1]);
+                if (cmdLineItems.length == 2) {
+                    // 判断攻击目标是否有效
+                    if (isPresence(cmdLineItems[1])) {
+                        // 人攻击
+                        this.attackMonster(cmdLineItems[1]);
+                        // 判断攻击目标是否死亡
+                        this.checkIsDead(cmdLineItems[1]);
+                    } else {
+                        monsterSet.outputId(theArray);
+                        continue;
+                    }
                 } else {
-                    monsterSet.outputId(theArray);
+                    System.out.println("输入指令错误！请输入要攻击的目标（e.g. switch targetCreature)");
                     continue;
                 }
             } else {

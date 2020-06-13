@@ -26,14 +26,6 @@ public class CastleUi extends Ui {
     }
 
     // 剧情
-    public void intro() {
-        System.out.println("独白：\n…………这是哪儿…………\n" +
-        "…………我是谁…………\n");
-        System.out.println("神秘的声音：\n勇敢的骑…士啊，神指…引你来(不知哪里传来孩童的谈论：选t……)到这里。开始…你的冒险吧……\n");
-        System.out.println("(周围一片黑漆漆，你更加困惑了)那儿好像有道光……");
-        System.out.println("---------------------------------------------\n" +
-                "是时候做出选择了：你要过去看一下吗？（y/n)");
-    }
 
     public void introCastle() {
         System.out.println("---------------------------------------------");
