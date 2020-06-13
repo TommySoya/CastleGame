@@ -3,6 +3,8 @@ package com.castle.scene;
 import com.castle.creature.MonsterWolf;
 import com.castle.creature.Person;
 import com.castle.set.MonsterWolfSet;
+import com.castle.ui.BranchRoadUi;
+import com.castle.ui.Ui;
 import com.castle.utils.Utils;
 import com.castle.weapon.Weapon;
 import com.castle.weapon.WeaponDagger;
@@ -19,9 +21,11 @@ import java.util.Scanner;
  * @version: 1.0
  * @modified By:
  */
-public class SceneBranchRoad extends Scene {
+public class SceneBranchRoad extends Scene implements PlotMethod {
 
     // 特殊场景——歧路
+
+    BranchRoadUi ui = BranchRoadUi.getUi();
 
     public SceneBranchRoad() {
     }

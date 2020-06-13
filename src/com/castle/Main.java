@@ -13,12 +13,10 @@ import java.util.Scanner;
 
 public class Main {
 
-
-
     public static void main(String[] args) {
 
         // 创建一些对象(工具人）
-        Ui ui = Ui.getUi();
+        Ui ui = new Ui();
         Scanner in = new Scanner(System.in);
         Scene initScene = new Scene();
 
@@ -38,6 +36,8 @@ public class Main {
         // 场景三--<歧路>
         SceneBranchRoad sceneBranchRoad = new SceneBranchRoad();
         sceneBranchRoad.plot();
+
+        // 场景四--<城堡>
 
     }
 }

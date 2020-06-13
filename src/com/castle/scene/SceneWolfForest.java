@@ -2,6 +2,7 @@ package com.castle.scene;
 
 import com.castle.creature.MonsterWolf;
 import com.castle.set.MonsterWolfSet;
+import com.castle.ui.WolfForestUi;
 import com.castle.weapon.WeaponKnife;
 
 /**
@@ -11,7 +12,9 @@ import com.castle.weapon.WeaponKnife;
  * @version: 1.0
  * @modified By:
  */
-public class SceneWolfForest extends Scene {
+public class SceneWolfForest extends Scene implements PlotMethod {
+
+    WolfForestUi ui = WolfForestUi.getUi();
 
     public SceneWolfForest() {
         super.monsterSet = MonsterWolfSet.getMonsters();
@@ -27,7 +30,7 @@ public class SceneWolfForest extends Scene {
             new WeaponKnife("mw3", "大刀3", -25));
 
 
-    //初始化
+    // 初始化
     public void initSense() {
         initPerson();
         initMonser();

@@ -24,7 +24,7 @@ public class Scene {
     protected CreatureSet monsterSet;
     protected final Scanner in = new Scanner(System.in);
     protected final Utils utils = Utils.getUtils();
-    protected final Ui ui = Ui.getUi();
+    protected Ui ui = new Ui();
     protected ArrayList<Creature> theArray;
 
 

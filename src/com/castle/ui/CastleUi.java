@@ -1,8 +1,6 @@
 package com.castle.ui;
 
-import com.castle.creature.Creature;
 import com.castle.creature.Person;
-import com.castle.scene.Scene;
 
 /**
  * @description:
@@ -11,24 +9,33 @@ import com.castle.scene.Scene;
  * @version: 1.0
  * @modified By:
  */
-public class WolfForestUi extends Ui {
+public class CastleUi extends Ui {
 
     // 构造函数私有化
-    private WolfForestUi() {
+    private CastleUi() {
     };
 
     // 静态内部类实现了单例模式
     private static class UiHolder {
-        private static WolfForestUi ui = new WolfForestUi();
+        private static CastleUi ui = new CastleUi();
     }
 
     // 返回单例
-    public static WolfForestUi getUi() {
+    public static CastleUi getUi() {
         return UiHolder.ui;
     }
 
     // 剧情
-    public void introWolfForest() {
+    public void intro() {
+        System.out.println("独白：\n…………这是哪儿…………\n" +
+        "…………我是谁…………\n");
+        System.out.println("神秘的声音：\n勇敢的骑…士啊，神指…引你来(不知哪里传来孩童的谈论：选t……)到这里。开始…你的冒险吧……\n");
+        System.out.println("(周围一片黑漆漆，你更加困惑了)那儿好像有道光……");
+        System.out.println("---------------------------------------------\n" +
+                "是时候做出选择了：你要过去看一下吗？（y/n)");
+    }
+
+    public void introCastle() {
         System.out.println("---------------------------------------------");
         System.out.println("这里好像是一片森林？\n等等，那是……\n" +
                 "一团黑影：\n“啊嗷~~~~~~~~~~~~！”\n" +
@@ -39,12 +46,12 @@ public class WolfForestUi extends Ui {
                 "（迟疑间，狼群已经迫近）来不及了，必须做出决定了！是前进还是退却？（y/n)");
     }
 
-    public void exitWolfForestToBye() {
+    public void exitCastleToBye() {
         System.out.println("---------------------------------------------");
         System.out.println("（奋力奔跑）不知过了多久，不知去向何方，亦不知我是谁。生于无知，亦在迷惑中离去……");
     }
 
-    public void exitWolfForest() {
+    public void exitCastle() {
         System.out.println("---------------------------------------------");
         System.out.println("（呼...松了口气）好险，应该安全了吧，赶快休息一下\n…………生命值恢复了10%");
         // 此处为场景衔接的彩蛋

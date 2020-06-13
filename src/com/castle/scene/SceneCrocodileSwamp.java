@@ -4,6 +4,9 @@ import com.castle.creature.MonsterWolf;
 import com.castle.creature.Person;
 import com.castle.set.MonsterCrocodileSet;
 import com.castle.set.MonsterWolfSet;
+import com.castle.ui.BranchRoadUi;
+import com.castle.ui.CrocodileSwampUi;
+import com.castle.ui.WolfForestUi;
 import com.castle.weapon.WeaponDagger;
 import com.castle.weapon.WeaponFangs;
 import com.castle.weapon.WeaponKnife;
@@ -15,7 +18,9 @@ import com.castle.weapon.WeaponKnife;
  * @version: 1.0
  * @modified By:
  */
-public class SceneCrocodileSwamp extends Scene {
+public class SceneCrocodileSwamp extends Scene implements PlotMethod {
+
+    CrocodileSwampUi ui = CrocodileSwampUi.getUi();
 
     public SceneCrocodileSwamp() {
         super.monsterSet = MonsterCrocodileSet.getMonsters();
@@ -24,7 +29,7 @@ public class SceneCrocodileSwamp extends Scene {
 
     //设置场景、生物等
     private final MonsterWolf wolf1 = new MonsterWolf("crocodile", "巨鳄", 300,
-            new WeaponFangs("ly1", "獠牙", -100));
+            new WeaponFangs("tooth", "獠牙", -100));
 
 
     //初始化
