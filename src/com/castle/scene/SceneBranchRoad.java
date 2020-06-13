@@ -112,6 +112,16 @@ public class SceneBranchRoad extends Scene {
         }
     }
 
+    public void theEndIntro() {
+        ui.truchIdent(Person.getPerson().getCurrentWeapon());
+        System.out.println("\n\n少爷？难道我……" +
+                "\n器……我的身体……好像彻底恢复了？这真的不是梦吗？");
+        Person.getPerson().setDescription("公爵之子");
+        Person.getPerson().setMaxHp(1000);
+        Person.getPerson().setHpValue(Person.getPerson().getMaxHp());
+        ui.displayPersonStatus();
+    }
+
     // 总体
     public void plot() {
         // 场景介绍
@@ -124,8 +134,11 @@ public class SceneBranchRoad extends Scene {
                 isGetWeapon();
                 break;
             case "n":
-                ui.exit();
+                ui.exitBranchRoadToContinue();
+                break;
         }
+        // 最终之战--<引子>
+        theEndIntro();
         // 场景收尾
         ui.exitBranchRoad();
     }

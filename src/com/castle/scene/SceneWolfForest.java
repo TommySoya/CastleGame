@@ -44,4 +44,40 @@ public class SceneWolfForest extends Scene {
         theArray.add(wolf3);
     }
 
+    public void plot() {
+        // 战斗前夕的介绍--剧情介绍<狼群出现>
+        String choice = this.choice();
+        switch (choice) {
+            case "y":
+                ui.introWolfForest();
+                break;
+            case "n":
+                ui.exitWolfForestToBye();
+                System.exit(0);
+                break;
+        }
+
+        // 战斗--<狼群的猛攻>
+        choice = this.choice();
+        switch (choice) {
+            case "y":
+                SceneWolfForest senseWolfForest = new SceneWolfForest();
+                senseWolfForest.initSense();
+                senseWolfForest.play();
+                break;
+            case "n":
+                ui.exitWolfForestToBye();
+                System.exit(0);
+                break;
+        }
+
+        // 场景过渡--死亡判断<下一幕剧情的触发及彩蛋>
+        if (this.getPerson().getHpValue() <= 0) {
+            ui.exit();
+            System.exit(0);
+        } else {
+            ui.exitWolfForest();
+        }
+    }
+
 }

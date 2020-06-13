@@ -52,4 +52,34 @@ public class SceneCrocodileSwamp extends Scene {
         }
     }
 
+    // 总体
+    public void plot() {
+        ui.introCrocodileSwampFir();
+        // 开始前--<彩蛋之捡起武器>
+        if (this.choice().equals("y")) {
+            System.out.println("是一把武器……（为什么这么熟悉）");
+            Person.getPerson().setCurrentWeapon(new WeaponDagger("quiet", "静谧之刃", -100));
+            ui.displayPersonStatus();
+            // 战斗--<巨鳄突袭>
+            ui.introCrocodileSwampSec();
+            SceneCrocodileSwamp sceneCrocodileSwamp = new SceneCrocodileSwamp();
+            sceneCrocodileSwamp.initSense();
+            sceneCrocodileSwamp.play();
+        } else {
+            ui.exitCrocodileSwampToBye();
+            System.exit(0);
+        }
+
+        // 场景过渡--死亡判断<下一幕剧情的触发及彩蛋>
+        if (this.getPerson().getHpValue() <= 0) {
+            ui.exit();
+            System.exit(0);
+        } else {
+            Person.getPerson().setMaxHp(500);
+            Person.getPerson().setHpValue(Person.getPerson().getMaxHp());
+            ui.exitCrocodileSwamp();
+            ui.displayPersonStatus();
+        }
+    }
+
 }

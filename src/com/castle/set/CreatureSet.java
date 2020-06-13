@@ -51,6 +51,17 @@ public class CreatureSet {
         return flag;
     }
 
+    // 输出id
+    public void outputId(ArrayList<Creature> creatures) {
+        System.out.println("请输入正确的攻击对象的id：");
+        System.out.print("<");
+        for (Creature item:creatures
+        ) {
+            System.out.print(item.getId() + " ");
+        }
+        System.out.println(">");
+    }
+
     // 暂不涉及
 //    public void modify(ArrayList<Creature> creatures, String id) {
 //        boolean flag = false;

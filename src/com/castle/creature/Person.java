@@ -21,6 +21,7 @@ public class Person extends Creature {
     // 构造函数
     private Person(String id, String description, int hpValue, Weapon currentWeapon) {
         super(id, description, hpValue, currentWeapon);
+        this.getWeaponSet().getWeapons().add(this.getCurrentWeapon());
     }
 
     private static class PersonHolder {

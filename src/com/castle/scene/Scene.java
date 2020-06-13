@@ -59,6 +59,19 @@ public class Scene {
         return choice.toLowerCase();
     }
 
+    // 判断攻击目标是否存在
+    public boolean isPresence(String id) {
+        boolean flag = false;
+        for (Creature item:theArray
+             ) {
+            if (id.equals(item.getId())) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
     // 人的回合--攻击
     public void attackMonster(String target) {
         // 人对妖怪造成伤害
@@ -126,10 +139,16 @@ public class Scene {
                 ui.displayHelpMsg();
                 continue;
             } else if (cmdLineItems[0].equals("chop")) {
-                // 人攻击
-                this.attackMonster(cmdLineItems[1]);
-                // 判断攻击目标是否死亡
-                this.checkIsDead(cmdLineItems[1]);
+                // 判断攻击目标是否有效
+                if (isPresence(cmdLineItems[1])) {
+                    // 人攻击
+                    this.attackMonster(cmdLineItems[1]);
+                    // 判断攻击目标是否死亡
+                    this.checkIsDead(cmdLineItems[1]);
+                } else {
+                    monsterSet.outputId(theArray);
+                    continue;
+                }
             } else {
                 ui.displayErrorCmdMsg();
                 continue;
