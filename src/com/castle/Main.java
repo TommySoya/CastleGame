@@ -12,29 +12,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 创建一些对象
+        // 创建对象
         Ui ui = new Ui();
         Scanner in = new Scanner(System.in);
+        SceneWolfForest sceneWolfForest = new SceneWolfForest();
+        SceneCrocodileSwamp sceneCrocodileSwamp = new SceneCrocodileSwamp();
+        SceneBranchRoad sceneBranchRoad = new SceneBranchRoad();
+        SceneCastle sceneCastle = new SceneCastle();
 
         // 正片开始
         ui.intro();
 
         // 场景一--<森林>
-        SceneWolfForest sceneWolfForest = new SceneWolfForest();
         sceneWolfForest.plot();
 
-
         // 场景二--<沼泽>
-        SceneCrocodileSwamp sceneCrocodileSwamp = new SceneCrocodileSwamp();
         sceneCrocodileSwamp.plot();
 
-
         // 场景三--<歧路>
-        SceneBranchRoad sceneBranchRoad = new SceneBranchRoad();
         sceneBranchRoad.plot();
 
         // 场景四--<城堡>
-        SceneCastle sceneCastle = new SceneCastle();
         sceneCastle.plot();
 
     }
