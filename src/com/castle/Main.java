@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 创建一些对象(工具人）
+        // 创建一些对象
         Ui ui = new Ui();
         Scanner in = new Scanner(System.in);
 
