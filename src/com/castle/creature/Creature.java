@@ -17,6 +17,7 @@ public abstract class Creature {
     private String description;
     private int hpValue;
     private Weapon currentWeapon;
+    private String status = "normal";
 
     //定义武器集合
     private WeaponSet weaponSet;
@@ -57,6 +58,22 @@ public abstract class Creature {
         this.currentWeapon = currentWeapon;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public WeaponSet getWeaponSet() {
+        return weaponSet;
+    }
+
+    public void setWeaponSet(WeaponSet weaponSet) {
+        this.weaponSet = weaponSet;
+    }
+
     public Creature() {
     }
 
@@ -78,4 +95,11 @@ public abstract class Creature {
         this.currentWeapon = currentWeapon;
     }
 
+    public Creature(String id, String description, int hpValue, Weapon currentWeapon, String status) {
+        this.id = id;
+        this.description = description;
+        this.hpValue = hpValue;
+        this.currentWeapon = currentWeapon;
+        this.status = status;
+    }
 }

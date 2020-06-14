@@ -18,6 +18,10 @@ public class MonsterDuke extends Creature {
         super(id, description, hpValue, currentWeapon);
     }
 
+    public MonsterDuke(String id, String description, int hpValue, Weapon currentWeapon, String status) {
+        super(id, description, hpValue, currentWeapon, status);
+    }
+
     @Override
     public void useArticle(Weapon weapon, Creature targetCreature) {
         weapon.useArticle(targetCreature);

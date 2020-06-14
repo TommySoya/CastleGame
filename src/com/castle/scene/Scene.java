@@ -83,15 +83,27 @@ public class Scene {
                 this.monsterSet.get(theArray, target));
     }
 
+    // 战斗前的交互区域（提示信息，待重写）
+    public void promptMessage(String id) {
+
+    }
+
     // 妖怪的回合--攻击
-    public void attackPerson() {
+    public void attackPerson(String personState) {
         for (Creature item:theArray
         ) {
-            if (1 == Utils.randomMonsterChop(0, 2)) {
-                //怪物对人造成伤害
-                item.useArticle(item.getCurrentWeapon(), this.getPerson());
-                //提示造成伤害信息
-                ui.displayDamageMsg(item, this.getPerson());
+            if (personState.equals("defence")) {
+                if (1 == Utils.randomMonsterChop(0, 2)) {
+                    //怪物对人造成伤害
+                    System.out.println(item.getDescription() + "发动了攻击，但被躲避了！");
+                }
+            } else {
+                if (1 == Utils.randomMonsterChop(0, 2)) {
+                    //怪物对人造成伤害
+                    item.useArticle(item.getCurrentWeapon(), this.getPerson());
+                    //提示造成伤害信息
+                    ui.displayDamageMsg(item, this.getPerson());
+                }
             }
         }
     }
@@ -125,6 +137,8 @@ public class Scene {
         ui.displayStatus(this);
         //进入循环
         while (true) {
+            // 战斗前的交互区域（提示信息）
+            promptMessage("");
             //提示用户输入指令
             ui.displayCmdMsg();
             //用户输入指令
@@ -141,6 +155,8 @@ public class Scene {
                     // 判断武器是否存在
                     if (getPerson().getWeaponSet().isPresence(cmdLineItems[1])) {
                         getPerson().setCurrentWeapon(getPerson().getWeaponSet().select(cmdLineItems[1]));
+                        System.out.println("--------------------\n切换成功");
+                        ui.displayPersonStatus();
                     } else {
                         System.out.print("该武器不存在，请输入正确的武器id\n" +
                                 "你现在拥有：");
@@ -157,7 +173,7 @@ public class Scene {
             } else if (cmdLineItems[0].equals("help")) {
                 ui.displayHelpMsg();
                 continue;
-            } else if (cmdLineItems[0].equals("chop")) {
+            } else if (cmdLineItems[0].equals("chop") || cmdLineItems[0].equals("defence")) {
                 if (cmdLineItems.length == 2) {
                     // 判断攻击目标是否有效
                     if (isPresence(cmdLineItems[1])) {
@@ -169,6 +185,8 @@ public class Scene {
                         monsterSet.outputId(theArray);
                         continue;
                     }
+                } else if (cmdLineItems[0].equals("defence")) {
+                    System.out.println(person.getDescription() + "进入了防御姿态！");
                 } else {
                     System.out.println("输入指令错误！请输入要攻击的目标（e.g. switch targetCreature)");
                     continue;
@@ -185,7 +203,7 @@ public class Scene {
             }
 
             //妖怪进行随机判断攻击
-            this.attackPerson();
+            this.attackPerson(cmdLineItems[0]);
 
             // 判断是否失败
             if (getPerson().getHpValue() <= 0) {

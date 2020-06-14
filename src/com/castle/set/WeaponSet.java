@@ -28,7 +28,7 @@ public class WeaponSet {
         Weapon goalWeapon = null;
         for (Weapon item : weapons
         ) {
-            if (item.equals(id)) {
+            if (item.getId().equals(id)) {
                 goalWeapon = item;
                 break;
             }
@@ -36,11 +36,12 @@ public class WeaponSet {
         return goalWeapon;
     }
 
+    // is presence?
     public boolean isPresence(String id) {
         boolean goalWeapon = false;
         for (Weapon item : weapons
         ) {
-            if (item.equals(id)) {
+            if (item.getId().equals(id)) {
                 goalWeapon = true;
                 break;
             }

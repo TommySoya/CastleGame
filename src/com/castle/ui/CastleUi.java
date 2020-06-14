@@ -29,28 +29,28 @@ public class CastleUi extends Ui {
 
     public void introCastle() {
         System.out.println("---------------------------------------------");
-        System.out.println("这里好像是一片森林？\n等等，那是……\n" +
-                "一团黑影：\n“啊嗷~~~~~~~~~~~~！”\n" +
-                "（震惊）那是狼……群！");
-        System.out.println("---------------------------------------------\n" +
-                "你突然发现在你的的身旁有一把生锈的铁剑，不知道还能不能用\n逃跑……我该去哪里呢？\n" +
-                "骑士……难道这就是我的宿命？我到底是谁？\n" +
-                "（迟疑间，狼群已经迫近）来不及了，必须做出决定了！是前进还是退却？（y/n)");
+        System.out.println("（你低头向着城堡走去，得知身世的你不知如何面对这座城堡）" +
+                "砰！\n" +
+                "（抬头）已经……到了吗（发现大门就在面前）");
+        System.out.println("\n难道这座城堡会移动？（y）\n" +
+                "我已经走了这么久了么？（n）");
     }
 
-    public void exitCastleToBye() {
+    public void enterCastle() {
         System.out.println("---------------------------------------------");
-        System.out.println("（奋力奔跑）不知过了多久，不知去向何方，亦不知我是谁。生于无知，亦在迷惑中离去……");
+        System.out.println("（身后传来狼嚎）看来只能面对了……" +
+                "\n（城堡大门忽地缓缓敞开，似乎感应到了你的到来）\n" +
+                "\n公爵：来吧孩子，不必多说了" + Person.getPerson().getCurrentWeapon().getDescription() +
+                "的指引……呵呵" +
+                "\n上来吧，让我看看你成长到什么地步了");
     }
 
     public void exitCastle() {
         System.out.println("---------------------------------------------");
-        System.out.println("（呼...松了口气）好险，应该安全了吧，赶快休息一下\n…………生命值恢复了10%");
-        // 此处为场景衔接的彩蛋
-        Person.getPerson().setHpValue(Person.getPerson().getHpValue() + Person.getPerson().getMaxHp() / 10);
-        this.displayPersonStatus();
-        System.out.println("---------------------------------------------");
-        System.out.println("（远山传来一声狼嚎，头有点痛）似乎又有狼群靠近，该离开了！");
+        System.out.println("我：一切都结束了么");
+        System.out.println("公爵之魂：无数的孩子来此，他们都成为了下一个公爵啊！！！" +
+                "\n难道你还不明白，这虚假的世界，只剩下反复轮回了吗？");
+        System.out.println("========完=========");
     }
 
 }

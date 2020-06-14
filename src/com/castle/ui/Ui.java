@@ -25,11 +25,12 @@ public class Ui {
         System.out.println("---------------------------------------------");
         System.out.println(scene.getPerson().getId() + "(" + scene.getPerson().getDescription()
                 + "):" +
-                " <HP> " + scene.getPerson().getHpValue());
+                " <HP> " + scene.getPerson().getHpValue() +
+                "  <Status> " + scene.getPerson().getStatus());
         for (Creature item: scene.getTheArray()
              ) {
             System.out.print(item.getId() + "(" + item.getDescription()
-            + "): <HP> " + item.getHpValue() + "; ");
+            + "): <HP> " + item.getHpValue() + "  <Status> " + item.getStatus() + "; ");
         }
         System.out.println("\n---------------------------------------------");
     }
@@ -47,13 +48,13 @@ public class Ui {
     // 帮助信息
     public void displayHelpMsg() {
         System.out.println("---------------------------------------------");
-        System.out.println("--你可以选择如下操作:<攻击>chop(例如：chop wolf1)  <离开>bye  <帮助>help--");
+        System.out.println("--你可以选择如下操作:<攻击>chop(例如：chop wolf1)  <防御>defence  <离开>bye  <帮助>help--");
     }
 
     // 提示输入指令
     public void displayCmdMsg() {
         System.out.println("---------------------------------------------");
-        System.out.println("你可以：[攻击<chop>  切换武器<switch>  结束游戏<bye>  查看帮助信息<help>]");
+        System.out.println("你可以：[攻击<chop>  切换武器<switch>  防御<defence>  结束游戏<bye>  查看帮助信息<help>]");
         System.out.println("请选择你的操作\n(输入\"help\"查看帮助信息):");
     }
 

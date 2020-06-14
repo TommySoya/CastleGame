@@ -90,13 +90,13 @@ public class SceneBranchRoad extends Scene implements PlotMethod {
         int ranNum = Utils.randomMonsterChop(0, 3);
         switch (ranNum) {
             case 0:
-                weapon = new WeaponKnife("crime", "天罪", -30);
+                weapon = new WeaponKnife("crime", "天罪", -999);
                 break;
             case 1:
-                weapon = new WeaponDagger("ling", "雁翎", -30);
+                weapon = new WeaponDagger("ling", "雁翎", -999);
                 break;
             case 2:
-                weapon = new WeaponSword("shadow", "承影", -30);
+                weapon = new WeaponSword("shadow", "承影", -999);
                 break;
         }
         return weapon;
@@ -111,6 +111,7 @@ public class SceneBranchRoad extends Scene implements PlotMethod {
             Person.getPerson().setCurrentWeapon(weapon);
             Person.getPerson().getWeaponSet().getWeapons().add(weapon);
             ui.displayPersonStatus();
+            System.out.println("器：少爷，在关键时刻我会提醒您的，那时我将凝聚全身力量发动致命一击");
         } else {
             System.out.println("（怀疑地）难道这又是陷阱？");
         }

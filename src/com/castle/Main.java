@@ -1,10 +1,7 @@
 package com.castle;
 
 import com.castle.creature.Person;
-import com.castle.scene.Scene;
-import com.castle.scene.SceneBranchRoad;
-import com.castle.scene.SceneCrocodileSwamp;
-import com.castle.scene.SceneWolfForest;
+import com.castle.scene.*;
 import com.castle.ui.Ui;
 import com.castle.weapon.WeaponDagger;
 import com.castle.weapon.WeaponSword;
@@ -18,7 +15,6 @@ public class Main {
         // 创建一些对象(工具人）
         Ui ui = new Ui();
         Scanner in = new Scanner(System.in);
-        Scene initScene = new Scene();
 
         // 正片开始
         ui.intro();
@@ -38,6 +34,8 @@ public class Main {
         sceneBranchRoad.plot();
 
         // 场景四--<城堡>
+        SceneCastle sceneCastle = new SceneCastle();
+        sceneCastle.plot();
 
     }
 }
