@@ -26,11 +26,15 @@ public class Ui {
         System.out.println(scene.getPerson().getId() + "(" + scene.getPerson().getDescription()
                 + "):" +
                 " <HP> " + scene.getPerson().getHpValue() +
-                "  <Status> " + scene.getPerson().getStatus());
+                " <Weapon>" + scene.getPerson().getCurrentWeapon().getDescription() +
+                "（攻击力：" + scene.getPerson().getCurrentWeapon().getDamagePoints() +
+                ")  <Status> " + scene.getPerson().getStatus());
         for (Creature item: scene.getTheArray()
              ) {
-            System.out.print(item.getId() + "(" + item.getDescription()
-            + "): <HP> " + item.getHpValue() + "  <Status> " + item.getStatus() + "; ");
+            System.out.println(item.getId() + "(" + item.getDescription()
+                    + "): <HP> " + item.getHpValue()
+                    + " <Weapon> " + item.getCurrentWeapon().getDescription()
+                    + "(攻击力:" + -item.getCurrentWeapon().getDamagePoints() + ")  <Status> " + item.getStatus());
         }
         System.out.println("\n---------------------------------------------");
     }
