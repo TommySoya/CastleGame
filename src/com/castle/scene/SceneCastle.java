@@ -7,7 +7,10 @@ import com.castle.set.MonsterDukeSet;
 import com.castle.set.MonsterWolfSet;
 import com.castle.ui.CastleUi;
 import com.castle.ui.Ui;
+import com.castle.utils.Utils;
 import com.castle.weapon.WeaponKnife;
+
+import javax.swing.plaf.DesktopIconUI;
 
 /**
  * @description:
@@ -32,22 +35,22 @@ public class SceneCastle extends Scene implements PlotMethod {
     // 初始化
     public void initSense() {
         initPerson();
-        initMonser();
+        initMonster();
     }
 
     public void initPerson() {
         //该生物在创建时已传参
     }
 
-    public void initMonser() {
+    public void initMonster() {
         //该生物在创建时已传参,只将其放入集合
         theArray.add(duke);
     }
 
     @Override
     public void promptMessage(String id) {
-        if (Person.getPerson().getWeaponSet().isPresence(id)) {
-            System.out.println(Person.getPerson().getWeaponSet().select(id).getDescription() +
+        if (Person.getPerson().getWeaponSet().isPresence(id) || duke.getStatus().equals("weak")) {
+            System.out.println(Person.getPerson().getCurrentWeapon().getDescription() +
                     "似乎有反应了！");
         } else {
             System.out.println("父……他果然还是毫无破绽……");
@@ -71,12 +74,12 @@ public class SceneCastle extends Scene implements PlotMethod {
                 case 6:
                     duke.setStatus("shadow"); // 承影：似乎使用承影可以制裁他
                     break;
-
             }
         } else {
             duke.setStatus("weak"); // 公爵虚弱了，趁机击杀他！
             System.out.println("公爵虚弱了，趁机击杀他！");
         }
+        promptMessage(duke.getStatus());
     }
 
     public void dukeLines() {
@@ -100,31 +103,42 @@ public class SceneCastle extends Scene implements PlotMethod {
         // 更新公爵的状态
         updateStatus();
 
-        if (personState.equals("defence")) {
-            // 公爵台词
-            dukeLines();
-            System.out.println("公爵的攻击被你躲避了！");
+        if (Utils.randomMonsterChop(0, 10) == 1) {
+            // 恢复生命
+            System.out.println("公爵释放黑色能量包裹自身，似乎恢复了全部力量！");
+            duke.setHpValue(duke.getMaxHp());
         } else {
-            //怪物对人造成伤害
-            duke.useArticle(duke.getCurrentWeapon(), this.getPerson());
-            //提示造成伤害信息
-            System.out.println("好强的力量！我该怎么办？");
-            ui.displayDamageMsg(duke, this.getPerson());
+            // 攻击
+            if (personState.equals("defence")) {
+                dukeLines(); // 公爵的台词（交互）
+                System.out.println("公爵的攻击被你躲避了！");
+            } else {
+                // 怪物对人造成伤害
+                duke.useArticle(duke.getCurrentWeapon(), this.getPerson());
+                // 提示造成伤害信息
+                System.out.println("好强的力量！我该怎么办？(器说过，要听从它的指引）");
+                ui.displayDamageMsg(duke, this.getPerson());
+            }
         }
     }
 
     @Override // 重写人的攻击方法
     public void attackMonster(String target) {
-        if ((duke.getStatus().equals("crime") && person.getCurrentWeapon().getDescription().equals("天罪")) ||
-                (duke.getStatus().equals("ling") && person.getCurrentWeapon().getDescription().equals("雁翎")) ||
-                (duke.getStatus().equals("shadow") && person.getCurrentWeapon().getDescription().equals("承影")) ||
+        if ((duke.getStatus().equals(person.getCurrentWeapon().getId())) ||
                 (duke.getStatus().equals("weak"))) {
-            // 人对妖怪造成伤害
-            this.getPerson().useArticle(getPerson().getCurrentWeapon(),
-                    this.getMonsterSet().get(theArray, target));
-            // 提示伤害信息
-            ui.displayDamageMsg(this.getPerson(),
-                    this.monsterSet.get(theArray, target));
+            if (Utils.randomMonsterChop(0, 3) == 1) {
+                duke.setHpValue(0);
+                System.out.println(Person.getPerson().getCurrentWeapon().getDescription() +
+                        "与你产生了共鸣，器的力量全部倾泻在公爵身上，公爵被重创！");
+            } else {
+                // 运气不咋地，没有触发必杀
+                // 人对妖怪造成伤害
+                this.getPerson().useArticle(getPerson().getCurrentWeapon(),
+                        this.getMonsterSet().get(theArray, target));
+                // 提示伤害信息
+                ui.displayDamageMsg(this.getPerson(),
+                        this.monsterSet.get(theArray, target));
+            }
         } else {
             // 人对妖怪造成伤害
             duke.setHpValue(duke.getHpValue() - 10);
@@ -137,14 +151,14 @@ public class SceneCastle extends Scene implements PlotMethod {
     // 总体
     public void plot() {
 
-        int decision;
+        boolean decision;
         // 最终决战--抉择
         ui.introCastle();
         // 小机制判断
         if (this.choice().equals("y")) {
-            decision = 1;
+            decision = true;
         } else {
-            decision = 0;
+            decision = false;
         }
         ui.enterCastle();
         System.out.println("\n准备好了么？（按下回车键继续）");
@@ -155,7 +169,12 @@ public class SceneCastle extends Scene implements PlotMethod {
         play();
 
         // 大结局
-        ui.exitCastle();
+        if (decision) {
+            ui.exitCastleFir();
+        } else {
+            ui.exitCastleSec();
+        }
+
     }
 
 }

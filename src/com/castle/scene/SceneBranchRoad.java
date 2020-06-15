@@ -90,13 +90,13 @@ public class SceneBranchRoad extends Scene implements PlotMethod {
         int ranNum = Utils.randomMonsterChop(0, 3);
         switch (ranNum) {
             case 0:
-                weapon = new WeaponKnife("crime", "天罪", -999);
+                weapon = new WeaponKnife("crime", "天罪", -4999);
                 break;
             case 1:
-                weapon = new WeaponDagger("ling", "雁翎", -999);
+                weapon = new WeaponDagger("ling", "雁翎", -4999);
                 break;
             case 2:
-                weapon = new WeaponSword("shadow", "承影", -999);
+                weapon = new WeaponSword("shadow", "承影", -4999);
                 break;
         }
         return weapon;

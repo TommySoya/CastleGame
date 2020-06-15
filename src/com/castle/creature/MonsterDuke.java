@@ -16,10 +16,12 @@ public class MonsterDuke extends Creature {
 
     public MonsterDuke(String id, String description, int hpValue, Weapon currentWeapon) {
         super(id, description, hpValue, currentWeapon);
+        super.setMaxHp(hpValue);
     }
 
     public MonsterDuke(String id, String description, int hpValue, Weapon currentWeapon, String status) {
         super(id, description, hpValue, currentWeapon, status);
+        super.setMaxHp(hpValue);
     }
 
     @Override

@@ -28,23 +28,23 @@ public class SceneCrocodileSwamp extends Scene implements PlotMethod {
     }
 
     //设置场景、生物等
-    private final MonsterWolf wolf1 = new MonsterWolf("crocodile", "巨鳄", 300,
+    private final MonsterWolf crocodile = new MonsterWolf("crocodile", "巨鳄", 300,
             new WeaponFangs("tooth", "獠牙", -100));
 
 
     //初始化
     public void initSense() {
         initPerson();
-        initMonser();
+        initMonster();
     }
 
     public void initPerson() {
         //该生物在创建时已传参
     }
 
-    public void initMonser() {
+    public void initMonster() {
         //该生物在创建时已传参,只将其放入集合
-        theArray.add(wolf1);
+        theArray.add(crocodile);
     }
 
     // 彩蛋

@@ -16,6 +16,7 @@ public class MonsterWolf extends Creature {
 
     public MonsterWolf(String id, String description, int hpValue, Weapon currentWeapon) {
         super(id, description, hpValue, currentWeapon);
+        super.setMaxHp(hpValue);
     }
 
     @Override

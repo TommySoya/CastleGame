@@ -22,6 +22,7 @@ public class Person extends Creature {
     private Person(String id, String description, int hpValue, Weapon currentWeapon) {
         super(id, description, hpValue, currentWeapon);
         this.getWeaponSet().getWeapons().add(this.getCurrentWeapon());
+        super.setMaxHp(hpValue);
     }
 
     private static class PersonHolder {

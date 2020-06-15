@@ -16,6 +16,7 @@ public abstract class Creature {
     private String id;
     private String description;
     private int hpValue;
+    private int maxHp;
     private Weapon currentWeapon;
     private String status = "normal";
 
@@ -47,7 +48,11 @@ public abstract class Creature {
     }
 
     public void setHpValue(int hpValue) {
-        this.hpValue = hpValue;
+        if (hpValue >= maxHp) {
+            this.hpValue = this.maxHp;
+        } else {
+            this.hpValue = hpValue;
+        }
     }
 
     public Weapon getCurrentWeapon() {
@@ -72,6 +77,14 @@ public abstract class Creature {
 
     public void setWeaponSet(WeaponSet weaponSet) {
         this.weaponSet = weaponSet;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
     }
 
     public Creature() {

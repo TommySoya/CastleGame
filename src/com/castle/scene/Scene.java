@@ -32,14 +32,14 @@ public class Scene {
     //初始化
     public void initSense() {
         initPerson();
-        initMonser();
+        initMonster();
     }
 
     public void initPerson() {
         //该生物在创建时已传参
     }
 
-    public void initMonser() {
+    public void initMonster() {
         //该生物在创建时已传参,只将其放入集合
     }
 
@@ -137,8 +137,6 @@ public class Scene {
         ui.displayStatus(this);
         //进入循环
         while (true) {
-            // 战斗前的交互区域（提示信息）
-            promptMessage("");
             //提示用户输入指令
             ui.displayCmdMsg();
             //用户输入指令
@@ -186,7 +184,8 @@ public class Scene {
                         continue;
                     }
                 } else if (cmdLineItems[0].equals("defence")) {
-                    System.out.println(person.getDescription() + "进入了防御姿态！");
+                    System.out.println(person.getDescription() + "进入了防御姿态！(生命值得到了少量恢复)");
+                    Person.getPerson().setHpValue((int) (Person.getPerson().getHpValue() * 1.1));
                 } else {
                     System.out.println("输入指令错误！请输入要攻击的目标（e.g. switch targetCreature)");
                     continue;

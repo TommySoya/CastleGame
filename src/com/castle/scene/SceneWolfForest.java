@@ -3,6 +3,8 @@ package com.castle.scene;
 import com.castle.creature.MonsterWolf;
 import com.castle.set.MonsterWolfSet;
 import com.castle.ui.WolfForestUi;
+import com.castle.weapon.WeaponDagger;
+import com.castle.weapon.WeaponFangs;
 import com.castle.weapon.WeaponKnife;
 
 /**
@@ -22,25 +24,25 @@ public class SceneWolfForest extends Scene implements PlotMethod {
     }
 
     //设置场景、生物等
-    private final MonsterWolf wolf1 = new MonsterWolf("wolf1", "狼1", 80,
-            new WeaponKnife("mw1", "大刀1", -30));
-    private final MonsterWolf wolf2 = new MonsterWolf("wolf2", "狼2", 120,
-            new WeaponKnife("mw2", "大刀2", -20));
-    private final MonsterWolf wolf3 = new MonsterWolf("wolf3", "狼3", 100,
-            new WeaponKnife("mw3", "大刀3", -25));
+    private final MonsterWolf wolf1 = new MonsterWolf("rageWolf", "狂暴狼", 80,
+            new WeaponFangs("mw1", "獠牙", -30));
+    private final MonsterWolf wolf2 = new MonsterWolf("wolverine", "金刚狼", 120,
+            new WeaponKnife("mw2", "大刀", -20));
+    private final MonsterWolf wolf3 = new MonsterWolf("swiftWolf", "敏捷狼", 100,
+            new WeaponDagger("mw3", "匕首", -25));
 
 
     // 初始化
     public void initSense() {
         initPerson();
-        initMonser();
+        initMonster();
     }
 
     public void initPerson() {
         //该生物在创建时已传参
     }
 
-    public void initMonser() {
+    public void initMonster() {
         //该生物在创建时已传参,只将其放入集合
         theArray.add(wolf1);
         theArray.add(wolf2);
